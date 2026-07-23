@@ -1,20 +1,21 @@
 <?php
 $page = $_GET['page'] ?? 'home';
 
-$pages = [
-    'home' => 'pages/home.php',
-    'about' => 'pages/about.php',
-    'contact' => 'pages/contact.php'
-];
-
-if (!isset($pages[$page])) {
-    $page = 'home';
+if ($page == 'home') {
+    include 'pages/home.php';
+} elseif ($page == 'about') {
+    include 'pages/about.php';
+} elseif ($page == 'contact') {
+    include 'pages/contact.php';
+} else {
+    include 'pages/home.php';
 }
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
