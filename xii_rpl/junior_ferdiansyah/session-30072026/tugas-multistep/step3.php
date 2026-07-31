@@ -9,7 +9,25 @@ if (!isset($_SESSION['tiket'])) {
 
 if (isset($_POST['konfirmasi'])) {
 
-    $_SESSION['flash'] = "Pendaftaran berhasil";
+    $data = [
+        "nama" => $_SESSION['nama'],
+        "email" => $_SESSION['email'],
+        "telepon" => $_SESSION['telepon'],
+        "tiket" => $_SESSION['tiket'],
+        "workshop" => $_SESSION['workshop']
+    ];
+
+    $file = "data.json";
+
+    if (file_exists($file)) {
+        $json = json_decode(file_get_contents($file), true);
+    } else {
+        $json = [];
+    }
+
+    $json[] = $data;
+
+    file_put_contents($file, json_encode($json, JSON_PRETTY_PRINT));
 
     session_unset();
 
@@ -18,7 +36,6 @@ if (isset($_POST['konfirmasi'])) {
     header("Location: success.php");
     exit;
 }
-
 ?>
 
 <h2>ringkasan</h2>
