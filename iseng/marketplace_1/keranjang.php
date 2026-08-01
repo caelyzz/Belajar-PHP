@@ -8,6 +8,26 @@ $produk = json_decode($data, true);
 if (!isset($_SESSION["cart"])){
     $_SESSION["cart"]=[];
 }
+
+if (isset($_POST["plus"])){
+    $id = $_POST["id"];
+    $_SESSION["cart"][$id]++;
+    header("Location: keranjang.php");
+    exit;
+}
+
+//tombol
+if (isset($_POST["minus"])){
+    $id = $_POST["id"];
+    $_SESSION["cart"][$id]--;
+    if($_SESSION["cart"][$id] <= 0){
+        unset($_SESSION["cart"][$id]);
+    }
+
+    header("Location: keranjang.php");
+    exit;
+}
+
 $total = 0;
 
 ?>
@@ -20,7 +40,7 @@ $total = 0;
     </head>
     <body>
         <h1>Keranjang</h1>
-        <a href="produk.php" kembali></a>
+        <a href="produk.php"> <- kembali></a>
         <hr>
         <?php
         if (empty($_SESSION["cart"])){
@@ -37,7 +57,19 @@ $total = 0;
             <img src="gambar/<?=$p["gambar"]?>"width="120">
             <h3><?=$p["nama"]?></h3>
             <p>Harga : <?=$p["harga"]?></p>
-            <p>Jumlah : <?=$p["jumlah"]?></p>
+            <!-- <p>Jumlah : <?=$p["jumlah"]?></p> -->
+            <form method="post">
+                <input type="hidden" name="id" value="<?=$p["id"]?>">
+                <button type="submit" name="minus">
+                    -
+                </button>
+
+                <?= $jumlah ?>
+
+                <button type="submit" name="plus">
+                    +
+                </button>
+            </form>
             <p>Harga : Rp<?=number_format($subtotal)?></p>
         </div>
         <?php
