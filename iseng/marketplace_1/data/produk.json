@@ -11,7 +11,7 @@
         "nama":"hengset",
         "harga":10000,
         "stok":15,
-        "gambar":"headset.jpg"
+        "gambar":"headset.png"
     },
     {
         "id":3,
@@ -25,6 +25,6 @@
         "nama":"laptop",
         "harga":12000000,
         "stok":1,
-        "gambar":"laptop.jpg"
+        "gambar":"laptop.png"
     }
 ]
