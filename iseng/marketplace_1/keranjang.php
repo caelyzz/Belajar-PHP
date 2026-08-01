@@ -28,6 +28,30 @@ if (isset($_POST["minus"])){
     exit;
 }
 
+if (isset($_POST["beli"])){
+    $data = file_get_contents("data/produk.json");
+    $produk = json_decode($data, true);
+
+    foreach ($_SESSION["cart"] as $id => $jumlah){
+        foreach ($produk as &$p){
+            if ($p["id"] == $id){
+                $p["stok"] -= $jumlah;
+            }
+        }
+        unset($p); //menghapus referensi foreach
+    }
+
+    file_put_contents(
+        "data/produk.json",
+        json_encode($produk, JSON_PRETTY_PRINT)
+    );
+
+    $_SESSION["cart"] = [];
+
+    header("Location: produk.php");
+    exit;
+}
+
 $total = 0;
 
 ?>
@@ -79,6 +103,11 @@ $total = 0;
         ?>
         <hr>
         <h2>Total : Rp<?=number_format($total)?></h2>
+        <form method="post">
+            <button type="submit" name="beli">
+                Beli
+            </button>
+        </form>
         <?php
         }
         ?>

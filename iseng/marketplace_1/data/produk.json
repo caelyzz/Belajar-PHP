@@ -1,30 +1,30 @@
 [
     {
-        "id":1,
-        "nama":"mouse",
-        "harga":80000,
-        "stok":10,
-        "gambar":"mouse.jpg"
+        "id": 1,
+        "nama": "mouse",
+        "harga": 80000,
+        "stok": 10,
+        "gambar": "mouse.jpg"
     },
     {
-        "id":2,
-        "nama":"hengset",
-        "harga":10000,
-        "stok":15,
-        "gambar":"headset.png"
+        "id": 2,
+        "nama": "hengset",
+        "harga": 10000,
+        "stok": 13,
+        "gambar": "headset.png"
     },
     {
-        "id":3,
-        "nama":"keyboard",
-        "harga":100000,
-        "stok":7,
-        "gambar":"keyboard.jpg"
+        "id": 3,
+        "nama": "keyboard",
+        "harga": 100000,
+        "stok": 7,
+        "gambar": "keyboard.jpg"
     },
     {
-        "id":4,
-        "nama":"laptop",
-        "harga":12000000,
-        "stok":1,
-        "gambar":"laptop.png"
+        "id": 4,
+        "nama": "laptop",
+        "harga": 12000000,
+        "stok": 1,
+        "gambar": "laptop.png"
     }
 ]
