@@ -16,7 +16,6 @@ if (isset($_POST["plus"])){
     exit;
 }
 
-//tombol
 if (isset($_POST["minus"])){
     $id = $_POST["id"];
     $_SESSION["cart"][$id]--;
