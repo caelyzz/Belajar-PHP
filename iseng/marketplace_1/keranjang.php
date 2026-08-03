@@ -37,7 +37,7 @@ if (isset($_POST["beli"])){
                 $p["stok"] -= $jumlah;
             }
         }
-        unset($p); //menghapus referensi foreach
+        unset($p); //menghapus referensi foreachny
     }
 
     file_put_contents(
