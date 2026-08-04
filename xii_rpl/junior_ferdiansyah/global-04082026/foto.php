@@ -5,8 +5,16 @@ if (isset($_POST['submit'])){
 
     $nama = $_FILES['gambar']['name'];
     $asal = $_FILES['gambar']['tmp_name'];
+    $tujuan = 'upload/' . $nama;
 
-    move_uploaded_file($asal, 'upload/' . $nama);
+    if (move_uploaded_file($asal, $tujuan)){
+        echo "<h2> upload berhasil </h2>";
+        echo "<p> nama file : <b> $nama </b> </p>";
+        echo "<img src='$tujuan' width='300'>";
+    }
+    else{
+        echo "gagal upload";
+    }
 }
 
 ?>
