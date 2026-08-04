@@ -6,7 +6,7 @@ if (isset($_POST['submit'])){
     $nama = $_FILES['gambar']['name'];
     $asal = $_FILES['gambar']['tmp_name'];
 
-    move_uploaded_file($asal, 'upload/', $nama);
+    move_uploaded_file($asal, 'upload/' . $nama);
 }
 
 ?>
