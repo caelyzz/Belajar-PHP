@@ -4,7 +4,8 @@ $nama = "junior";
 $jurusan = "rpl";
 
 function namaPanggil(){
-    $GLOBALS['jurusan' . 'nama'];
+    $GLOBALS['nama'];
+    $GLOBALS['jurusan'];
 }
 
 namaPanggil();
