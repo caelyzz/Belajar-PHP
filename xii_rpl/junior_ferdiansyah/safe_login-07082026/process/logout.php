@@ -1,7 +1,7 @@
 <?php
 
 require_once "../helpers/auth.php";
-require_once "../helpers/auth.php";
+require_once "../config/database.php";
 
 startSession();
 
@@ -12,7 +12,7 @@ if(isset($_SESSION["user_id"])){
         WHERE id = ?
     ");
 
-    $query->execute($_SESSION["user_id"]);
+    $query->execute([$_SESSION["user_id"]]);
 }
 
 

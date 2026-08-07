@@ -22,6 +22,10 @@ if (strlen($password)<8){
     die("Minimal password character is 8");
 }
 
+if ($password !== $confirmPassword) {
+    die("Password confirmation does not match");
+}
+
 $query = $pdo->prepare(
     "SELECT id FROM users WHERE email = ?"
 );
@@ -45,11 +49,15 @@ $query = $pdo->prepare("
     )
 ");
 
-$query->execute([
+if ($query->execute([
     $username,
     $email,
     $passwordHash
-]);
+])) {
+    echo "Register berhasil";
+} else {
+    print_r($query->errorInfo());
+}
 
 header("Location: ../login.php");
 exit;

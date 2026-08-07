@@ -4,6 +4,9 @@ require_once "../config/database.php";
 require_once "../helpers/auth.php";
 require_once "../helpers/remember.php";
 
+$email = trim($_POST["email"] ?? "");
+$password = $_POST["password"] ?? "";
+
 if (empty($email) || empty($password)){
     die("Email and password must be filled");
 }
