@@ -23,5 +23,6 @@ startSession();
         </p>
         <br>
         <a href="process/logout.php">Logout</a>
+        <a href="profile.php">Profile</a>
     </body>
 </html>

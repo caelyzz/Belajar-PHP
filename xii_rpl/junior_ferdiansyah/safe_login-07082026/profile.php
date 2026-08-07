@@ -2,7 +2,7 @@
 
 require_once "config/database.php";
 require_once "helpers/auth.php";
-require_once "helpers/remmeber.php";
+require_once "helpers/remember.php";
 
 autoLogin();
 requiredLogin();
@@ -11,7 +11,7 @@ $query = $pdo->prepare("
     SELECT * FROM users WHERE id = ?
 ");
 
-$query->execute(["user_id"]);
+$query->execute([$_SESSION["user_id"]]);
 
 $user = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -41,7 +41,7 @@ $user = $query->fetch(PDO::FETCH_ASSOC);
         <hr>
 
         <h3>Upload Avatar</h3>
-        <form action="process/upload_avatar.php" method="post" enctype="multipart/formdata" required>
+        <form action="process/upload_avatar.php" method="post" enctype="multipart/form-data">
             <input type="file" name="avatar" accept=".jpg,.png,.jpeg,.webp,.gif" required>
             <br><br>
             <button type="submit">Upload</button>
