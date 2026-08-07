@@ -2,6 +2,7 @@
 
 require_once "../config/database.php";
 require_once "../helpers/auth.php";
+require_once "../helpers/remember.php";
 
 if (empty($email) || empty($password)){
     die("Email and password must be filled");
@@ -29,5 +30,8 @@ $_SESSION["user_id"] = $user["id"];
 $_SESSION["username"] = $user["username"];
 $_SESSION["email"] = $user["email"];
 
+if(isset($_POST["remember"])){
+    createRememberMe($user["id"]);
+}
 header("Location: ../home.php");
 exit;
